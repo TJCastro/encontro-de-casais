@@ -498,6 +498,7 @@
     padding:16px 20px;
     border-radius:12px;
     font-weight:600;
+    margin-top:18px;
   }
   .status-msg.show{display:block;}
   .status-msg.success{background:#e5efe9; color:var(--pine-deep);}
@@ -553,8 +554,6 @@
       <h2>Formulário de Intenção</h2>
       <p>Preencha os dados abaixo para confirmar a intenção de participação do casal. Qualquer dúvida, falaremos pelo WhatsApp informado.</p>
     </div>
-
-    <div id="statusMsg" class="status-msg"></div>
 
     <form id="inscricaoForm">
 
@@ -683,6 +682,7 @@
         <input type="hidden" name="comprovanteTipo" id="comprovanteTipo">
         <button type="submit" class="submit-btn" id="submitBtn">Confirmar inscrição</button>
         <p class="required-note">Todos os campos marcados são obrigatórios.</p>
+        <div id="statusMsg" class="status-msg"></div>
       </div>
     </form>
   </div>
@@ -904,12 +904,12 @@ iframe.addEventListener('load', () => {
   submitBtn.disabled = false;
   submitBtn.textContent = 'Confirmar inscrição';
   statusMsg.className = 'status-msg success show';
-  statusMsg.textContent = 'Inscrição enviada com sucesso! Em breve entraremos em contato pelo WhatsApp.';
+  statusMsg.textContent = 'Inscrição realizada com sucesso! Recebemos seus dados e em breve entraremos em contato pelo WhatsApp.';
   form.reset();
   childrenList.innerHTML = '';
   resetUploadBox();
   document.querySelectorAll('.conditional').forEach(c => c.classList.remove('open'));
-  window.scrollTo({ top: statusMsg.offsetTop - 40, behavior: 'smooth' });
+  statusMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 </script>
 
